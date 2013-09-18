@@ -1,3 +1,5 @@
 <h1>Home page</h1>
 
+<% unless current_owner %>
 <li><%= link_to "Sign up", new_owner_path, :class => "large button" %></li>
+<% end %>
