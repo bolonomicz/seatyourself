@@ -4,10 +4,14 @@ class OwnersController < ApplicationController
 		@owner = Owner.new
 	end
 
+	def show 
+		@owner = Owner.find(params[:id])
+	end
+
 	def create
 		@owner = Owner.new(params[:owner])
 		if @owner.save
-			redirect_to root_path
+			redirect_to @owner, alert: "Account created"
 		else
 			render "new"
 		end
