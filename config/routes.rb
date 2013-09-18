@@ -5,6 +5,8 @@ Seatyourself::Application.routes.draw do
 
   resources :owner_sessions, :only => [:new, :create, :destroy]
   resources :owners, except: [:index]
+
+  resources :restaurants
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

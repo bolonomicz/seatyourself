@@ -32,4 +32,6 @@ ActiveRecord::Schema.define(:version => 20130918223724) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "restaurants", ["owner_id", "created_at"], :name => "index_restaurants_on_owner_id_and_created_at"
+
 end

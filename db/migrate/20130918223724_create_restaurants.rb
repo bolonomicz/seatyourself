@@ -10,5 +10,6 @@ class CreateRestaurants < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :restaurants, [:owner_id, :created_at]
   end
 end
