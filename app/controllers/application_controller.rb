@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
 
   def current_owner
     @current_owner ||= Owner.find(session[:owner_id]) if session[:owner_id]
+    rescue ActiveRecord::RecordNotFound
   end
-
+ 
   helper_method :current_owner
+
+
+
 end

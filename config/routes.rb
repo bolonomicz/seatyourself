@@ -4,9 +4,18 @@ Seatyourself::Application.routes.draw do
   root :to => "home#index"
 
   resources :owner_sessions, :only => [:new, :create, :destroy]
-  resources :owners, except: [:index]
-
+  
+  resources :owners, except: [:index] 
   resources :restaurants
+  
+  
+
+   #   resources :owners, except: [:index] do 
+   #   resources :restaurants
+   # end
+ 
+
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

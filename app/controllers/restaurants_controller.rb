@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+	
 
 	
 	def new
@@ -10,11 +11,12 @@ class RestaurantsController < ApplicationController
 	end
 	
 	def create
-		@restaurant = Restaurant.new(params[:restaurant])
+		@restaurant = current_owner.restaurants.build(params[:restaurant])
 		if @restaurant.save
 			redirect_to restaurant_path(@restaurant)
 		else
 			render 'new'
+		end
 	end
 
 	def show
@@ -31,6 +33,7 @@ class RestaurantsController < ApplicationController
 			redirect_to @restaurant
 		else
 			render 'edit'
+		end
 	end
 
 	def destroy
@@ -38,4 +41,6 @@ class RestaurantsController < ApplicationController
 		@restaurant.destroy
 		redirect_to restaurants_path, notice: "restaurant deleted"
 	end
+
+	
 end
