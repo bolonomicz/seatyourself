@@ -8,7 +8,7 @@
     <ul class="right">
       <% if current_customer %>
         <li class="divider"></li>
-        <li>Signed in as <%= link_to current_customer.name.capitalize, current_customer %>.</li>
+        <li><%= link_to current_customer.name.capitalize, current_customer %></li>
         <li class="divider"></li>
         <li><%= link_to "Sign out", customer_session_path("current"), :method => :delete %></li>
       <% else %>
