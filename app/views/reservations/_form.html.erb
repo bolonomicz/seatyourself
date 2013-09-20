@@ -1,9 +1,14 @@
 <div class="large-8 columns">
 	<div class="field">
 		<%= form_for [@restaurant, @reservation] do |f| %>
-		<%= f.label :time_slot %>
-		<%= f.datetime_select :time_slot %>
-		<% f.submit %>
+		<div class="field">
+			<%= f.label :time_slot %>
+			<%= f.datetime_select :time_slot %>
+		</div>
+		<div>
+			<%= f.submit %>
+		</div>
+		</div>	
 	<% end %>
 	</div>
 

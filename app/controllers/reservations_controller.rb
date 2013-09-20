@@ -9,7 +9,11 @@ class ReservationsController < ApplicationController
   end
   
   def create
-    @reservation = @restaurant.reservation.build(params[:reservation])
+    #@customer = Customer.find(params[:customer_id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @reservation = @restaurant.reservations.build(params[:reservation]) 
+    #@reservation = @customer.reservations.build(params[:reservation])
+    #@reservation.customer = current_customer
     if @reservation.save
       redirect_to root_path
     else
