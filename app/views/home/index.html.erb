@@ -7,4 +7,9 @@
 		<% unless current_owner %>
 			<li><%= link_to "Sign up", new_owner_path, :class => "large button" %></li>
 		<% end %>
+
+		<div>
+			<h1>Restaurant list</h1>
+			<%= link_to "all Restaurant", restaurants_path %>
+		</div>
 </div>

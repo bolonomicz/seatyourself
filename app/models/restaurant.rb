@@ -7,5 +7,5 @@ class Restaurant < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   has_many :reservations
-  has_many :customers, througn: :reservations
+  has_many :customers, through: :reservations
 end

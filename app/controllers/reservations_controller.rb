@@ -1,16 +1,17 @@
 class ReservationsController < ApplicationController
   def new
-    @reservation = Reservation.new
+     @restaurant = Restaurant.find(params[:restaurant_id])
+     @reservation = @restaurant.reservations.build(params[:reservation])
   end
-
+  
   def index
     @reservations = Reservation.all
   end
-
+  
   def create
-    @reservation = current_customer.reservations.build (params[:reservation])
+    @reservation = @restaurant.reservation.build(params[:reservation])
     if @reservation.save
-      redirect_to reservation_path(@reservation)
+      redirect_to root_path
     else
       render 'new'
     end
@@ -27,7 +28,7 @@ class ReservationsController < ApplicationController
   def update
     @reservation = Reservation.find(params[:id])
     if @reservation.update_attributes(params[:reservation])
-      redirect_to @reservation
+      redirect_to root_path
     else
       render 'edit'
     end
@@ -36,6 +37,6 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
-    redirect_to reservations_path, notice: "reseravation cancelled"
+    redirect_to root_path, notice: "restaurant deleted"
   end
 end
