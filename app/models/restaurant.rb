@@ -5,4 +5,7 @@ class Restaurant < ActiveRecord::Base
 	validates :owner_id, presence: :true
   belongs_to :owner
   mount_uploader :image, ImageUploader
+
+  has_many :reservations
+  has_many :customers, througn: :reservations
 end
