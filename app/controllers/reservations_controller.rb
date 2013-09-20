@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   def new
+    #@customer = Customer.find(params[:customer_id])
      @restaurant = Restaurant.find(params[:restaurant_id])
      @reservation = @restaurant.reservations.build(params[:reservation])
   end
@@ -11,9 +12,8 @@ class ReservationsController < ApplicationController
   def create
     #@customer = Customer.find(params[:customer_id])
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @reservation = @restaurant.reservations.build(params[:reservation]) 
-    #@reservation = @customer.reservations.build(params[:reservation])
-    #@reservation.customer = current_customer
+    @reservation = @restaurant.reservations.build(params[:reservation]) #&& @customer.reservations.build(params[:reservation])
+    @reservation.customer_id = current_customer.id
     if @reservation.save
       redirect_to root_path
     else
