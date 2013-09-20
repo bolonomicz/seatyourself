@@ -6,12 +6,19 @@
   </ul>
   <section class="top-bar-section">
     <ul class="right">
-      <li class="divider"></li>
-      <li><%= link_to "Sign in", "#" %></li>
-      <li class="divider"></li>
-      <li><%= link_to "Sign out" %></li>
+      <% if current_customer %>
+        <li class="divider"></li>
+        <li>Signed in as <%= link_to current_customer.name.capitalize, current_customer %>.</li>
+        <li class="divider"></li>
+        <li><%= link_to "Sign out", customer_session_path("current"), :method => :delete %></li>
+      <% else %>
+        <li class="divider"></li>
+        <li><%= link_to "Sign in", new_customer_session_path %></li>
+      <% end %>
+
   
       
     </ul>
   </div>
 </nav>
+

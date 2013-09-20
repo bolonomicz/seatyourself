@@ -1,5 +1,7 @@
 <h1>Home page</h1>
 
+<%= link_to "biz account", new_owner_path %>
+<%= link_to "create customer acount son", new_customer_path %>
 <% unless current_owner %>
 <li><%= link_to "Sign up", new_owner_path, :class => "large button" %></li>
 <% end %>

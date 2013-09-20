@@ -8,7 +8,10 @@ class ApplicationController < ActionController::Base
     rescue ActiveRecord::RecordNotFound
   end
  
-  helper_method :current_owner
+ def current_customer
+ 	@current_customer ||= Customer.find(session[:customer_id]) if session[:customer_id]
+ end
+  helper_method :current_owner, :current_customer
 
 
 
